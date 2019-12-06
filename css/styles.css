@@ -1,0 +1,28 @@
+body{
+  background: linear-gradient(rgba(245, 244, 245, 0.9), rgba(245, 244, 245, 0.9)), url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-weight: bold;  
+}
+
+.filterCheckboxes input {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.card { 
+  background-color: rgba(245, 245, 245, 0.4);
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table th {
+  text-align: center;
+}
+
+.table tr td:nth-child(1n+2) {
+  text-align: center;
+}

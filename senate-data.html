@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Senate Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>  
+    <!--header container-->
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-8" onclick="window.location.href='home.html'">
+            <a href="index.html">
+              <img alt="imagen logo" src="images/TGIF-logo.png" style="width:100px">
+            </a>
+          </div>
+          <div class="col-4 text-right align-self-center">
+            <a href="mailto:info@tgif.net">&#x2709;info@tgif.net</a>
+          </div>
+        </div>
+      </div>
+    </header>   
+    <!--Nav container-->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Congress 113</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="house-data.html">House</a>
+                <a class="dropdown-item" href="senate-data.html">Senate</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Attendance</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="house-attendance.html">House</a>
+                <a class="dropdown-item" href="senate-attendance.html">Senate</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Party Loyalty</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="house-party-loyalty.html">House</a>
+                <a class="dropdown-item" href="senate-party-loyalty.html">Senate</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>    
+    </div>
+    <!--Main container-->
+    <main>
+      <div class="container" id="app">
+        <div class="row">
+          <div class="col-8">   
+            <h2>Senators</h2>
+            <p class="text-justify">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+          </div>
+          <div class="col-4">
+            <img src="images/senate-logo.png" alt="senate logo" style="width:200px" class="mx-auto d-block m-3"> 
+          </div>
+        </div>
+        <div class="row filterAreaContainer">
+          <div class="filterCheckboxes col-6">
+            <label>Filter by Party:</label>
+            <label><input type="checkbox" name="Party" value="D" checked>Democrat</label>
+            <label><input type="checkbox" name="Party" value="R" checked>Republican</label>
+            <label><input type="checkbox" name="Party" value="I" checked>Independent</label>
+          </div>
+          <div class="dropdownArea col-6 d-flex justify-content-end">
+            <label for="filters">Filter by State
+              <select class="dropdown" id="filters" name="states">
+                <option value="All" selected>All</option>
+                <option v-for="state in states" value: state>{{state}}</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Party</th>
+              <th>State</th>
+              <th>Years in Office</th>
+              <th>% Votes w/ Party</th>
+            </tr>
+          </thead>   
+          <tbody>    
+            <tr v-for="candidate in members">
+              <td class="link"><a v-bind:href="candidate.url" target="_blank">{{candidate.first_name}} {{candidate.middle_name}} {{candidate.last_name}}</a></td>
+              <td>{{candidate.party}}</td>
+              <td>{{candidate.state}}</td>
+              <td>{{candidate.seniority}}</td>
+              <td>{{candidate.votes_with_party_pct}}</td>
+            </tr>
+          </tbody> 
+        </table>
+      </div> 
+    </main>
+    <!--footer container-->
+    <footer>
+      <div class="container">
+        <h4 class="bg-dark text-light text-center p-2">&copy; 2019 TGIF | All Rights Reserved</h4>
+      </div>
+    </footer>  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/propublica-data.js"></script> 	  
+  </body>
+</html>
